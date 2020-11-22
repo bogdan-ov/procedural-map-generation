@@ -1,22 +1,19 @@
-// import Camera from "./classes/Camera.js";
 import Map from "./classes/Map.js";
-import Player from "./classes/Player.js";
-import { camera, render } from "./renderer.js";
+import Camera from "./classes/Camera.js";
+import { render } from "./renderer.js";
 
 const
-    player = new Player,
+    camera = new Camera,
     map = new Map;
-    // camera = new Camera;
 
+let time = 0;
 loop();
 function loop() {
     requestAnimationFrame(loop);
     render();
+    time ++;
     
-    map.render();
-    player.update();
-    camera.x = player.x;
-    camera.y = player.y;
-    // camera.update(player);
+    map.render(time);
+    camera.update();
 
 }
